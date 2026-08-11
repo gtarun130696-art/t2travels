@@ -1,1747 +1,2563 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>T2 Travels | Domestic Tour Packages from Hyderabad</title>
-  <meta
-    name="description"
-    content="T2 Travels Hyderabad - Domestic tour packages, pilgrimage tours, family holidays, honeymoon packages and customized India tours."
-  />
-
-  <style>
-    :root {
-      --primary: #0b5ed7;
-      --primary-dark: #084298;
-      --secondary: #ff7a00;
-      --dark: #102033;
-      --text: #526071;
-      --light: #f5f8fc;
-      --white: #ffffff;
-      --green: #25d366;
-      --shadow: 0 12px 35px rgba(16, 32, 51, 0.12);
-      --radius: 18px;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: #fff;
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    img {
-      width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: min(1180px, 92%);
-      margin: auto;
-    }
-
-    /* TOP BAR */
-
-    .topbar {
-      background: var(--dark);
-      color: white;
-      font-size: 14px;
-      padding: 8px 0;
-    }
-
-    .topbar-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-    }
-
-    /* NAVBAR */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,.97);
-      box-shadow: 0 3px 15px rgba(0,0,0,.08);
-    }
-
-    .navbar {
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 27px;
-      font-weight: 800;
-      color: var(--primary);
-    }
-
-    .logo-icon {
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      color: white;
-      background: linear-gradient(135deg, var(--primary), #00a8ff);
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    .logo span {
-      color: var(--secondary);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 26px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-weight: 600;
-      color: var(--dark);
-      transition: .2s;
-    }
-
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-
-    .nav-button {
-      background: var(--secondary);
-      color: white !important;
-      padding: 11px 18px;
-      border-radius: 30px;
-    }
-
-    .menu-btn {
-      display: none;
-      border: 0;
-      background: transparent;
-      font-size: 28px;
-      cursor: pointer;
-    }
-
-    /* HERO */
-
-    .hero {
-      min-height: 650px;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      background:
-        linear-gradient(90deg, rgba(5,20,40,.85), rgba(5,20,40,.35)),
-        url("https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1800&q=85")
-        center/cover;
-    }
-
-    .hero-content {
-      color: white;
-      max-width: 720px;
-      padding: 90px 0;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      background: rgba(255,255,255,.16);
-      border: 1px solid rgba(255,255,255,.3);
-      padding: 8px 16px;
-      border-radius: 30px;
-      margin-bottom: 20px;
-      backdrop-filter: blur(5px);
-    }
-
-    .hero h1 {
-      font-size: clamp(42px, 6vw, 72px);
-      line-height: 1.05;
-      margin-bottom: 22px;
-    }
-
-    .hero h1 span {
-      color: #ffad42;
-    }
-
-    .hero p {
-      font-size: 19px;
-      max-width: 650px;
-      margin-bottom: 30px;
-      color: #eef4fb;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 14px 24px;
-      border-radius: 9px;
-      border: 0;
-      font-weight: 700;
-      cursor: pointer;
-      transition: .25s;
-    }
-
-    .btn-primary {
-      background: var(--secondary);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: #e86600;
-      transform: translateY(-2px);
-    }
-
-    .btn-whatsapp {
-      background: var(--green);
-      color: white;
-    }
-
-    .btn-whatsapp:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-light {
-      background: white;
-      color: var(--dark);
-    }
-
-    /* SEARCH BOX */
-
-    .search-wrap {
-      margin-top: -55px;
-      position: relative;
-      z-index: 5;
-    }
-
-    .search-box {
-      background: white;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 25px;
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr auto;
-      gap: 15px;
-    }
-
-    .field label {
-      display: block;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--dark);
-      margin-bottom: 6px;
-    }
-
-    .field input,
-    .field select {
-      width: 100%;
-      height: 47px;
-      padding: 0 13px;
-      border: 1px solid #dce3eb;
-      border-radius: 8px;
-      outline: none;
-      font-size: 14px;
-      background: white;
-    }
-
-    /* SECTIONS */
-
-    section {
-      padding: 85px 0;
-    }
-
-    .section-heading {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 45px;
-    }
-
-    .section-heading .eyebrow {
-      color: var(--secondary);
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-size: 13px;
-    }
-
-    .section-heading h2 {
-      font-size: clamp(30px, 4vw, 44px);
-      color: var(--dark);
-      margin: 8px 0 12px;
-    }
-
-    /* DESTINATIONS */
-
-    .destination-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .destination {
-      position: relative;
-      height: 260px;
-      border-radius: var(--radius);
-      overflow: hidden;
-      color: white;
-    }
-
-    .destination img {
-      height: 100%;
-      object-fit: cover;
-      transition: .4s;
-    }
-
-    .destination:hover img {
-      transform: scale(1.08);
-    }
-
-    .destination-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: flex-end;
-      padding: 20px;
-      background: linear-gradient(transparent, rgba(0,0,0,.8));
-    }
-
-    .destination h3 {
-      font-size: 22px;
-    }
-
-    /* PACKAGES */
-
-    .packages {
-      background: var(--light);
-    }
-
-    .package-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
-
-    .package-card {
-      background: white;
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: 0 7px 25px rgba(0,0,0,.07);
-      transition: .25s;
-    }
-
-    .package-card:hover {
-      transform: translateY(-7px);
-      box-shadow: var(--shadow);
-    }
-
-    .package-image {
-      height: 220px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .package-image img {
-      height: 100%;
-      object-fit: cover;
-      transition: .4s;
-    }
-
-    .package-card:hover .package-image img {
-      transform: scale(1.06);
-    }
-
-    .tag {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      background: var(--secondary);
-      color: white;
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: bold;
-    }
-
-    .package-body {
-      padding: 22px;
-    }
-
-    .package-body h3 {
-      color: var(--dark);
-      font-size: 21px;
-      margin-bottom: 8px;
-    }
-
-    .package-info {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      font-size: 13px;
-      color: #697586;
-      margin-bottom: 15px;
-    }
-
-    .package-description {
-      font-size: 14px;
-      margin-bottom: 18px;
-    }
-
-    .package-bottom {
-      border-top: 1px solid #edf0f4;
-      padding-top: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .price small {
-      display: block;
-      font-size: 11px;
-      color: #7b8794;
-    }
-
-    .price strong {
-      color: var(--primary);
-      font-size: 21px;
-    }
-
-    .small-btn {
-      padding: 10px 14px;
-      border-radius: 7px;
-      background: var(--primary);
-      color: white;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    /* CATEGORIES */
-
-    .category-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .category {
-      padding: 30px 20px;
-      text-align: center;
-      background: white;
-      border: 1px solid #e9edf3;
-      border-radius: 15px;
-      transition: .25s;
-    }
-
-    .category:hover {
-      border-color: var(--primary);
-      transform: translateY(-5px);
-      box-shadow: var(--shadow);
-    }
-
-    .category-icon {
-      font-size: 40px;
-      margin-bottom: 12px;
-    }
-
-    .category h3 {
-      color: var(--dark);
-      margin-bottom: 5px;
-    }
-
-    /* WHY US */
-
-    .why {
-      background: #071c33;
-      color: white;
-    }
-
-    .why .section-heading h2 {
-      color: white;
-    }
-
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .why-card {
-      padding: 30px 22px;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 15px;
-      background: rgba(255,255,255,.04);
-    }
-
-    .why-icon {
-      font-size: 35px;
-      margin-bottom: 15px;
-    }
-
-    .why-card h3 {
-      margin-bottom: 8px;
-      color: white;
-    }
-
-    .why-card p {
-      color: #b9c7d8;
-      font-size: 14px;
-    }
-
-    /* CTA */
-
-    .cta {
-      background:
-        linear-gradient(100deg, rgba(11,94,215,.94), rgba(0,166,220,.88)),
-        url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1600&q=80")
-        center/cover;
-      color: white;
-      text-align: center;
-    }
-
-    .cta h2 {
-      font-size: clamp(30px, 4vw, 48px);
-      margin-bottom: 12px;
-    }
-
-    .cta p {
-      max-width: 650px;
-      margin: 0 auto 25px;
-    }
-
-    /* CONTACT */
-
-    .contact-section {
-      background: var(--light);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 30px;
-    }
-
-    .contact-info,
-    .contact-form {
-      background: white;
-      padding: 35px;
-      border-radius: var(--radius);
-      box-shadow: 0 5px 25px rgba(0,0,0,.06);
-    }
-
-    .contact-info h3,
-    .contact-form h3 {
-      color: var(--dark);
-      font-size: 25px;
-      margin-bottom: 18px;
-    }
-
-    .contact-item {
-      display: flex;
-      gap: 15px;
-      margin: 20px 0;
-      align-items: flex-start;
-    }
-
-    .contact-item-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: #eaf2ff;
-      flex-shrink: 0;
-    }
-
-    .contact-item strong {
-      display: block;
-      color: var(--dark);
-    }
-
-    .contact-form form {
-      display: grid;
-      gap: 14px;
-    }
-
-    .contact-form input,
-    .contact-form select,
-    .contact-form textarea {
-      width: 100%;
-      border: 1px solid #dce3eb;
-      padding: 13px 14px;
-      border-radius: 8px;
-      outline: none;
-      font-family: inherit;
-      font-size: 14px;
-    }
-
-    .contact-form textarea {
-      height: 120px;
-      resize: vertical;
-    }
-
-    /* FOOTER */
-
-    footer {
-      background: #071525;
-      color: #aebdce;
-      padding: 55px 0 20px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1fr;
-      gap: 35px;
-      margin-bottom: 40px;
-    }
-
-    .footer-logo {
-      color: white;
-      font-size: 27px;
-      font-weight: 800;
-      margin-bottom: 15px;
-    }
-
-    .footer-logo span {
-      color: var(--secondary);
-    }
-
-    footer h4 {
-      color: white;
-      margin-bottom: 16px;
-    }
-
-    footer ul {
-      list-style: none;
-    }
-
-    footer li {
-      margin: 9px 0;
-    }
-
-    footer a:hover {
-      color: white;
-    }
-
-    .copyright {
-      border-top: 1px solid rgba(255,255,255,.1);
-      padding-top: 20px;
-      text-align: center;
-      font-size: 13px;
-    }
-
-    /* FLOATING WHATSAPP */
-
-    .whatsapp {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      width: 58px;
-      height: 58px;
-      background: var(--green);
-      color: white;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-size: 28px;
-      box-shadow: 0 7px 20px rgba(0,0,0,.25);
-      z-index: 999;
-      transition: .2s;
-    }
-
-    .whatsapp:hover {
-      transform: scale(1.08);
-    }
-
-
-    /* PACKAGE FILTER / DETAILS */
-    .package-card.hidden { display: none; }
-    .package-results { display:flex; justify-content:space-between; align-items:center; gap:15px; margin:-20px 0 25px; flex-wrap:wrap; }
-    .results-text { font-weight:700; color:var(--dark); }
-    .clear-btn { border:1px solid #dce3eb; background:white; color:var(--dark); padding:9px 14px; border-radius:8px; cursor:pointer; font-weight:700; }
-    .clear-btn:hover { border-color:var(--primary); color:var(--primary); }
-    .package-actions { display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
-    .details-btn { border:1px solid var(--primary); background:white; color:var(--primary); padding:9px 13px; border-radius:7px; font-size:13px; font-weight:700; cursor:pointer; }
-    .details-btn:hover { background:#eef5ff; }
-    .no-results { display:none; text-align:center; padding:35px 20px; background:white; border:1px dashed #ccd6e2; border-radius:var(--radius); margin-top:10px; }
-    .no-results.show { display:block; }
-    .modal { display:none; position:fixed; inset:0; background:rgba(5,20,40,.72); z-index:2000; padding:20px; overflow-y:auto; }
-    .modal.show { display:grid; place-items:center; }
-    .modal-content { width:min(720px,100%); background:white; border-radius:var(--radius); box-shadow:0 20px 60px rgba(0,0,0,.25); padding:30px; position:relative; animation:modalIn .2s ease-out; }
-    @keyframes modalIn { from { opacity:0; transform:translateY(12px) scale(.98); } to { opacity:1; transform:translateY(0) scale(1); } }
-    .modal-close { position:absolute; top:12px; right:15px; border:0; background:#f2f5f8; color:var(--dark); width:38px; height:38px; border-radius:50%; font-size:22px; cursor:pointer; }
-    .modal-content h2 { color:var(--dark); margin:0 45px 10px 0; font-size:30px; }
-    .modal-meta { display:flex; flex-wrap:wrap; gap:10px; margin:12px 0 20px; }
-    .modal-meta span { background:#eef5ff; color:var(--primary); padding:7px 11px; border-radius:20px; font-size:13px; font-weight:700; }
-    .modal-content h3 { color:var(--dark); margin:20px 0 8px; }
-    .modal-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:22px; }
-    body.modal-open { overflow:hidden; }
-    @media (max-width:600px) { .package-results { align-items:stretch; } .package-actions { justify-content:flex-start; } .modal-content { padding:24px 20px; } .modal-content h2 { font-size:25px; } }
-
-    /* RESPONSIVE */
-
-    @media (max-width: 950px) {
-      .nav-links {
-        position: absolute;
-        top: 76px;
-        left: 0;
-        right: 0;
-        background: white;
-        display: none;
-        flex-direction: column;
-        align-items: stretch;
-        padding: 20px;
-        box-shadow: 0 10px 20px rgba(0,0,0,.08);
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .menu-btn {
-        display: block;
-      }
-
-      .search-box {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .destination-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .package-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .category-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .why-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 600px) {
-      .topbar-content {
-        justify-content: center;
-      }
-
-      .topbar-content span:first-child {
-        display: none;
-      }
-
-      .hero {
-        min-height: 600px;
-      }
-
-      .hero-content {
-        padding: 70px 0;
-      }
-
-      .hero h1 {
-        font-size: 43px;
-      }
-
-      .search-wrap {
-        margin-top: -30px;
-      }
-
-      .search-box {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 60px 0;
-      }
-
-      .destination-grid,
-      .package-grid,
-      .category-grid,
-      .why-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .destination {
-        height: 240px;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-info,
-      .contact-form {
-        padding: 25px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>T2 Travels | Domestic Tour Packages from Hyderabad</title>
+
+<meta name="description" content="T2 Travels Hyderabad - Domestic tour packages, pilgrimage tours, family holidays, honeymoon packages and customized India tours.">
+
+<style>
+:root{
+  --primary:#0b5ed7;
+  --primary-dark:#084298;
+  --secondary:#ff7a00;
+  --dark:#102033;
+  --text:#526071;
+  --light:#f5f8fc;
+  --white:#fff;
+  --green:#25d366;
+  --shadow:0 12px 35px rgba(16,32,51,.12);
+  --radius:18px;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:#fff;
+  line-height:1.6;
+}
+
+body.modal-open{
+  overflow:hidden;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+img{
+  width:100%;
+  display:block;
+}
+
+button,input,select,textarea{
+  font:inherit;
+}
+
+.container{
+  width:min(1180px,92%);
+  margin:auto;
+}
+
+/* TOP BAR */
+
+.topbar{
+  background:var(--dark);
+  color:white;
+  font-size:14px;
+  padding:8px 0;
+}
+
+.topbar-content{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+
+/* HEADER */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.97);
+  box-shadow:0 3px 15px rgba(0,0,0,.08);
+}
+
+.navbar{
+  min-height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:27px;
+  font-weight:800;
+  color:var(--primary);
+}
+
+.logo-icon{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:white;
+  background:linear-gradient(135deg,var(--primary),#00a8ff);
+  font-size:20px;
+  font-weight:bold;
+}
+
+.logo span{
+  color:var(--secondary);
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:24px;
+  list-style:none;
+}
+
+.nav-links a{
+  font-weight:600;
+  color:var(--dark);
+}
+
+.nav-links a:hover{
+  color:var(--primary);
+}
+
+.menu-btn{
+  display:none;
+  border:0;
+  background:none;
+  font-size:28px;
+  cursor:pointer;
+}
+
+/* BUTTONS */
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:13px 20px;
+  border-radius:10px;
+  border:0;
+  cursor:pointer;
+  font-weight:700;
+  transition:.2s;
+}
+
+.btn-primary{
+  background:var(--primary);
+  color:#fff;
+}
+
+.btn-primary:hover{
+  background:var(--primary-dark);
+}
+
+.btn-whatsapp{
+  background:var(--green);
+  color:#fff;
+}
+
+.btn-light{
+  background:#fff;
+  color:var(--dark);
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+/* HERO */
+
+.hero{
+  min-height:610px;
+  display:flex;
+  align-items:center;
+  background:
+    linear-gradient(rgba(7,30,58,.65),rgba(7,30,58,.65)),
+    url("https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+  color:white;
+}
+
+.hero-content{
+  max-width:800px;
+}
+
+.hero h1{
+  font-size:clamp(38px,6vw,68px);
+  line-height:1.08;
+  margin-bottom:20px;
+}
+
+.hero p{
+  font-size:20px;
+  max-width:680px;
+  margin-bottom:28px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+/* SEARCH */
+
+.search-box{
+  margin-top:35px;
+  background:white;
+  padding:18px;
+  border-radius:16px;
+  box-shadow:var(--shadow);
+  color:var(--dark);
+}
+
+.search-grid{
+  display:grid;
+  grid-template-columns:1.4fr 1fr auto;
+  gap:12px;
+}
+
+.search-grid input,
+.search-grid select{
+  width:100%;
+  padding:14px;
+  border:1px solid #d8e0ea;
+  border-radius:10px;
+  outline:none;
+}
+
+.search-grid input:focus,
+.search-grid select:focus{
+  border-color:var(--primary);
+}
+
+.search-note{
+  margin-top:10px;
+  font-size:13px;
+  color:var(--text);
+}
+
+/* SECTIONS */
+
+section{
+  padding:85px 0;
+}
+
+.section-heading{
+  text-align:center;
+  max-width:720px;
+  margin:0 auto 45px;
+}
+
+.eyebrow{
+  color:var(--secondary);
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:8px;
+}
+
+.section-heading h2{
+  color:var(--dark);
+  font-size:38px;
+  margin-bottom:12px;
+}
+
+/* DESTINATIONS */
+
+.destination-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.destination-card{
+  position:relative;
+  min-height:220px;
+  border-radius:var(--radius);
+  overflow:hidden;
+  cursor:pointer;
+  box-shadow:var(--shadow);
+}
+
+.destination-card img{
+  height:100%;
+  object-fit:cover;
+  transition:.4s;
+}
+
+.destination-card:hover img{
+  transform:scale(1.07);
+}
+
+.destination-overlay{
+  position:absolute;
+  inset:auto 0 0;
+  padding:35px 18px 18px;
+  color:white;
+  background:linear-gradient(transparent,rgba(0,0,0,.8));
+}
+
+.destination-overlay h3{
+  font-size:21px;
+}
+
+/* PACKAGES */
+
+.packages{
+  background:var(--light);
+}
+
+.package-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+.package-card{
+  background:white;
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  transition:.25s;
+}
+
+.package-card:hover{
+  transform:translateY(-5px);
+}
+
+.package-card.hidden{
+  display:none;
+}
+
+.package-image{
+  position:relative;
+  height:220px;
+  overflow:hidden;
+}
+
+.package-image img{
+  height:100%;
+  object-fit:cover;
+}
+
+.tag{
+  position:absolute;
+  top:14px;
+  left:14px;
+  z-index:2;
+  background:var(--secondary);
+  color:white;
+  padding:6px 10px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:700;
+}
+
+.package-body{
+  padding:22px;
+}
+
+.package-body h3{
+  color:var(--dark);
+  font-size:22px;
+  margin-bottom:10px;
+}
+
+.package-info{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  font-size:13px;
+  margin-bottom:12px;
+}
+
+.package-description{
+  margin-bottom:18px;
+}
+
+.package-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.price small{
+  display:block;
+  font-size:12px;
+}
+
+.price strong{
+  color:var(--primary);
+}
+
+.small-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 15px;
+  border-radius:9px;
+  background:var(--primary);
+  color:white;
+  font-weight:700;
+  border:0;
+  cursor:pointer;
+}
+
+.details-btn{
+  background:white;
+  color:var(--primary);
+  border:2px solid var(--primary);
+  margin-right:7px;
+}
+
+.details-btn:hover{
+  background:var(--primary);
+  color:white;
+}
+
+.results-bar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  margin-bottom:25px;
+}
+
+#resultsText{
+  font-weight:700;
+  color:var(--dark);
+}
+
+.clear-btn{
+  border:0;
+  background:none;
+  color:var(--primary);
+  cursor:pointer;
+  font-weight:700;
+}
+
+#noResults{
+  display:none;
+  text-align:center;
+  padding:30px;
+  background:white;
+  border-radius:15px;
+}
+
+#noResults.show{
+  display:block;
+}
+
+/* CATEGORIES */
+
+.category-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.category{
+  padding:28px 20px;
+  background:white;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  text-align:center;
+}
+
+.category-icon{
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+.category h3{
+  color:var(--dark);
+  margin-bottom:6px;
+}
+
+/* WHY */
+
+.why{
+  background:var(--light);
+}
+
+.why-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.why-card{
+  background:white;
+  padding:28px 20px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+
+.why-icon{
+  font-size:36px;
+  margin-bottom:10px;
+}
+
+.why-card h3{
+  color:var(--dark);
+  margin-bottom:8px;
+}
+
+/* CTA */
+
+.cta{
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  color:white;
+  text-align:center;
+}
+
+.cta h2{
+  font-size:40px;
+  margin-bottom:12px;
+}
+
+.cta p{
+  max-width:700px;
+  margin:0 auto 25px;
+}
+
+/* CONTACT */
+
+.contact-section{
+  background:#fff;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:35px;
+}
+
+.contact-info,
+.contact-form{
+  padding:30px;
+  border-radius:var(--radius);
+  background:var(--light);
+}
+
+.contact-info h3,
+.contact-form h3{
+  color:var(--dark);
+  margin-bottom:25px;
+}
+
+.contact-item{
+  display:flex;
+  gap:14px;
+  margin-bottom:22px;
+}
+
+.contact-item-icon{
+  font-size:24px;
+}
+
+.contact-item strong{
+  display:block;
+  color:var(--dark);
+}
+
+.contact-item a{
+  color:var(--primary);
+  font-weight:600;
+}
+
+.contact-form form{
+  display:grid;
+  gap:14px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea{
+  width:100%;
+  padding:14px;
+  border:1px solid #d8e0ea;
+  border-radius:10px;
+  outline:none;
+}
+
+.contact-form textarea{
+  min-height:130px;
+  resize:vertical;
+}
+
+/* FOOTER */
+
+footer{
+  background:var(--dark);
+  color:#d7e0ea;
+  padding:55px 0 20px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:30px;
+}
+
+.footer-logo{
+  color:white;
+  font-size:28px;
+  font-weight:800;
+  margin-bottom:12px;
+}
+
+.footer-logo span{
+  color:var(--secondary);
+}
+
+footer h4{
+  color:white;
+  margin-bottom:12px;
+}
+
+footer ul{
+  list-style:none;
+}
+
+footer li{
+  margin-bottom:8px;
+}
+
+footer a:hover{
+  color:white;
+}
+
+.copyright{
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,.12);
+  margin-top:35px;
+  padding-top:20px;
+  font-size:13px;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:var(--green);
+  color:white;
+  display:grid;
+  place-items:center;
+  font-size:27px;
+  z-index:1200;
+  box-shadow:0 8px 25px rgba(0,0,0,.2);
+}
+
+/* MODAL */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:2000;
+  background:rgba(0,0,0,.65);
+  padding:25px;
+  align-items:center;
+  justify-content:center;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  width:min(650px,100%);
+  max-height:90vh;
+  overflow:auto;
+  background:white;
+  border-radius:20px;
+  padding:30px;
+  position:relative;
+  box-shadow:0 20px 60px rgba(0,0,0,.3);
+}
+
+.modal-close{
+  position:absolute;
+  top:12px;
+  right:15px;
+  border:0;
+  background:none;
+  font-size:28px;
+  cursor:pointer;
+  color:var(--dark);
+}
+
+.modal-box h2{
+  color:var(--dark);
+  margin-bottom:15px;
+  padding-right:30px;
+}
+
+.modal-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-bottom:20px;
+}
+
+.modal-description{
+  margin-bottom:25px;
+}
+
+.modal-buttons{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .nav-links{
+    position:absolute;
+    top:76px;
+    left:0;
+    right:0;
+    background:white;
+    display:none;
+    flex-direction:column;
+    align-items:flex-start;
+    padding:20px 4%;
+    box-shadow:0 10px 20px rgba(0,0,0,.1);
+  }
+
+  .nav-links.active{
+    display:flex;
+  }
+
+  .menu-btn{
+    display:block;
+  }
+
+  .destination-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .package-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .category-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .why-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .footer-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .search-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:650px){
+
+  section{
+    padding:60px 0;
+  }
+
+  .hero{
+    min-height:650px;
+  }
+
+  .hero h1{
+    font-size:42px;
+  }
+
+  .hero p{
+    font-size:17px;
+  }
+
+  .destination-grid,
+  .package-grid,
+  .category-grid,
+  .why-grid,
+  .contact-grid,
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .topbar-content{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .section-heading h2{
+    font-size:30px;
+  }
+
+  .package-bottom{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .details-btn{
+    margin-right:0;
+    margin-bottom:8px;
+  }
+
+  .whatsapp{
+    right:15px;
+    bottom:15px;
+  }
+
+}
+</style>
 </head>
 
 <body>
 
-  <!-- TOP BAR -->
+<!-- TOP BAR -->
 
-  <div class="topbar">
-    <div class="container topbar-content">
-      <span>🇮🇳 Explore Incredible India with T2 Travels</span>
-      <span>📞 9014954747</span>
-    </div>
+<div class="topbar">
+  <div class="container topbar-content">
+    <span>🇮🇳 Domestic Tours Across India</span>
+    <span>📞 9014954747</span>
   </div>
+</div>
 
-  <!-- NAVIGATION -->
+<!-- HEADER -->
 
-  <header>
-    <div class="container navbar">
+<header>
+  <div class="container navbar">
 
-      <a href="#" class="logo">
-        <div class="logo-icon">T2</div>
-        T2 <span>Travels</span>
-      </a>
+    <a href="#home" class="logo">
+      <span class="logo-icon">T2</span>
+      T2 <span>Travels</span>
+    </a>
 
-      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">
+      ☰
+    </button>
 
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#destinations">Destinations</a></li>
-        <li><a href="#packages">Packages</a></li>
-        <li><a href="#pilgrimage">Pilgrimage</a></li>
-        <li><a href="#about">Why T2?</a></li>
-        <li><a href="#contact" class="nav-button">Enquire Now</a></li>
-      </ul>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#destinations">Destinations</a></li>
+      <li><a href="#packages">Packages</a></li>
+      <li><a href="#pilgrimage">Pilgrimage</a></li>
+      <li><a href="#about">Why T2?</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
 
-    </div>
-  </header>
+  </div>
+</header>
 
-  <!-- HERO -->
+<!-- HERO -->
 
-  <section class="hero" id="home">
-    <div class="container">
-      <div class="hero-content">
+<section class="hero" id="home">
 
-        <div class="hero-badge">
-          ✈️ Your Trusted Travel Partner from Hyderabad
-        </div>
+  <div class="container">
 
-        <h1>
-          Discover <span>India</span><br>
-          Your Way
-        </h1>
+    <div class="hero-content">
 
-        <p>
-          Explore beautiful destinations, spiritual journeys,
-          family holidays and unforgettable experiences across India
-          with T2 Travels.
-        </p>
+      <div class="eyebrow">T2 Travels Hyderabad</div>
 
-        <div class="hero-buttons">
-          <a href="#packages" class="btn btn-primary">
-            🧳 Explore Packages
-          </a>
+      <h1>Explore India.<br>Travel Your Way.</h1>
 
-          <a
-            href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20want%20to%20know%20about%20your%20tour%20packages."
-            class="btn btn-whatsapp"
-            target="_blank"
-          >
-            💬 WhatsApp Us
-          </a>
-        </div>
+      <p>
+        Discover memorable domestic holidays, pilgrimage journeys,
+        family vacations, honeymoon packages and customized tours
+        across India.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="#packages" class="btn btn-primary">
+          🧳 Explore Packages
+        </a>
+
+        <a href="#contact" class="btn btn-light">
+          📝 Plan My Trip
+        </a>
 
       </div>
-    </div>
-  </section>
 
-  <!-- SEARCH -->
-
-  <div class="search-wrap">
-    <div class="container">
+      <!-- SEARCH -->
 
       <div class="search-box">
 
-        <div class="field">
-          <label>Where do you want to go?</label>
-          <input id="searchDestination" type="text" placeholder="Kashmir, Kerala, Goa..." onkeydown="if(event.key==='Enter') searchPackages()" />
-        </div>
+        <div class="search-grid">
 
-        <div class="field">
-          <label>Travel Type</label>
+          <input
+            id="searchDestination"
+            type="text"
+            placeholder="Kashmir, Kerala, Goa..."
+            onkeydown="if(event.key==='Enter'){searchPackages();}"
+          >
+
           <select id="travelType">
-            <option value="">All Tours</option>
-            <option>Family Holiday</option>
-            <option>Honeymoon</option>
-            <option>Pilgrimage</option>
-            <option>Adventure</option>
-            <option>Beach Holiday</option>
-            <option>Heritage Tour</option>
-            <option>Weekend Trip</option>
+            <option value="">All Tour Types</option>
+            <option value="Family Holiday">Family Holiday</option>
+            <option value="Honeymoon">Honeymoon</option>
+            <option value="Pilgrimage">Pilgrimage</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Beach Holiday">Beach Holiday</option>
+            <option value="Heritage Tour">Heritage Tour</option>
           </select>
+
+          <button
+            type="button"
+            class="btn btn-primary"
+            onclick="searchPackages()"
+          >
+            🔎 Search
+          </button>
+
         </div>
 
-        <div class="field">
-          <label>Travellers</label>
-          <select>
-            <option>1-2 People</option>
-            <option>3-5 People</option>
-            <option>6-10 People</option>
-            <option>10+ People</option>
-          </select>
+        <div class="search-note">
+          Search packages on the website. WhatsApp opens only when you choose to enquire.
         </div>
-
-        <button class="btn btn-primary" onclick="searchPackages()">
-          Search
-        </button>
 
       </div>
 
     </div>
+
   </div>
 
-  <!-- DESTINATIONS -->
+</section>
 
-  <section id="destinations">
-    <div class="container">
+<!-- DESTINATIONS -->
 
-      <div class="section-heading">
-        <div class="eyebrow">Popular Places</div>
-        <h2>Explore India's Best Destinations</h2>
-        <p>
-          From snow-covered mountains to tropical beaches and
-          sacred temples, discover India with T2 Travels.
-        </p>
-      </div>
+<section id="destinations">
 
-      <div class="destination-grid">
+  <div class="container">
 
-        <a href="#packages" class="destination" onclick="filterByDestination('Kashmir')">
-          <img
-            src="https://images.unsplash.com/photo-1566837497312-7be4c3c5c0f4?auto=format&fit=crop&w=900&q=80"
-            alt="Kashmir"
-          />
-          <div class="destination-overlay">
-            <h3>🏔️ Kashmir</h3>
-          </div>
-        </a>
+    <div class="section-heading">
 
-        <a href="#packages" class="destination" onclick="filterByDestination('Himachal')">
-          <img
-            src="https://images.unsplash.com/photo-1504598318550-17eba1008a68?auto=format&fit=crop&w=900&q=80"
-            alt="Himachal Pradesh"
-          />
-          <div class="destination-overlay">
-            <h3>🏔️ Himachal Pradesh</h3>
-          </div>
-        </a>
+      <div class="eyebrow">Explore India</div>
 
-        <a href="#packages" class="destination" onclick="filterByDestination('Kerala')">
-          <img
-            src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=900&q=80"
-            alt="Kerala"
-          />
-          <div class="destination-overlay">
-            <h3>🌴 Kerala</h3>
-          </div>
-        </a>
-
-        <a href="#packages" class="destination" onclick="filterByDestination('Goa')">
-          <img
-            src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=900&q=80"
-            alt="Goa"
-          />
-          <div class="destination-overlay">
-            <h3>🏖️ Goa</h3>
-          </div>
-        </a>
-
-        <a href="#packages" class="destination" onclick="filterByDestination('Rajasthan')">
-          <img
-            src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=900&q=80"
-            alt="Rajasthan"
-          />
-          <div class="destination-overlay">
-            <h3>🏰 Rajasthan</h3>
-          </div>
-        </a>
-
-        <a href="#packages" class="destination" onclick="filterByDestination('Uttarakhand')">
-          <img
-            src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&fit=crop&w=900&q=80"
-            alt="Uttarakhand"
-          />
-          <div class="destination-overlay">
-            <h3>🛕 Uttarakhand</h3>
-          </div>
-        </a>
-
-        <a href="#packages" class="destination">
-          <img
-            src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=900&q=80"
-            alt="North East India"
-          />
-          <div class="destination-overlay">
-            <h3>🌿 North East</h3>
-          </div>
-        </a>
-
-        <a href="#packages" class="destination">
-          <img
-            src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=900&q=80"
-            alt="Andaman"
-          />
-          <div class="destination-overlay">
-            <h3>🌊 Andaman</h3>
-          </div>
-        </a>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- PACKAGES -->
-
-  <section class="packages" id="packages">
-    <div class="container">
-
-      <div class="section-heading">
-        <div class="eyebrow">T2 Travels</div>
-        <h2>Popular Tour Packages</h2>
-        <p>
-          Choose from our most popular domestic holiday packages.
-          Prices can be customized according to your requirements.
-        </p>
-      </div>
-
-      <div class="package-results">
-        <div class="results-text" id="resultsText">Showing all 6 packages</div>
-        <button type="button" class="clear-btn" onclick="clearPackageFilters()">Clear Filters</button>
-      </div>
-
-      <div class="package-grid">
-
-        <!-- PACKAGE 1 -->
-
-        <article class="package-card" data-name="Kashmir Paradise Tour" data-destination="Kashmir" data-types="Family Holiday,Honeymoon">
-          <div class="package-image">
-            <span class="tag">Popular</span>
-            <img
-              src="https://images.unsplash.com/photo-1566837497312-7be4c3c5c0f4?auto=format&fit=crop&w=1000&q=80"
-              alt="Kashmir Tour"
-            />
-          </div>
-
-          <div class="package-body">
-            <h3>Kashmir Paradise Tour</h3>
-
-            <div class="package-info">
-              <span>📅 5 Nights / 6 Days</span>
-              <span>📍 Kashmir</span>
-            </div>
-
-            <p class="package-description">
-              Srinagar, Gulmarg, Pahalgam and Sonamarg.
-              Perfect for families and couples.
-            </p>
-
-            <div class="package-bottom">
-              <div class="price">
-                <small>Starting from</small>
-                <strong>Get Best Price</strong>
-              </div>
-
-              <div class="package-actions">
-                <button type="button" class="details-btn" onclick="showPackageDetails('Kashmir Paradise Tour')">View Details</button>
-                <a
-                  class="small-btn"
-                  href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20am%20interested%20in%20the%20Kashmir%20tour."
-                  target="_blank"
-                >
-                  Enquire
-                </a>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- PACKAGE 2 -->
-
-        <article class="package-card" data-name="Char Dham Yatra" data-destination="Uttarakhand" data-types="Pilgrimage">
-          <div class="package-image">
-            <span class="tag">Pilgrimage</span>
-            <img
-              src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&fit=crop&w=1000&q=80"
-              alt="Char Dham"
-            />
-          </div>
-
-          <div class="package-body">
-            <h3>Char Dham Yatra</h3>
-
-            <div class="package-info">
-              <span>📅 Custom Duration</span>
-              <span>📍 Uttarakhand</span>
-            </div>
-
-            <p class="package-description">
-              Visit Yamunotri, Gangotri, Kedarnath and Badrinath
-              with a comfortable pilgrimage itinerary.
-            </p>
-
-            <div class="package-bottom">
-              <div class="price">
-                <small>Starting from</small>
-                <strong>Get Best Price</strong>
-              </div>
-
-              <div class="package-actions">
-                <button type="button" class="details-btn" onclick="showPackageDetails('Char Dham Yatra')">View Details</button>
-                <a
-                  class="small-btn"
-                  href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20am%20interested%20in%20the%20Char%20Dham%20Yatra."
-                  target="_blank"
-                >
-                  Enquire
-                </a>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- PACKAGE 3 -->
-
-        <article class="package-card" data-name="Kerala Holiday" data-destination="Kerala" data-types="Family Holiday">
-          <div class="package-image">
-            <span class="tag">Family</span>
-            <img
-              src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1000&q=80"
-              alt="Kerala Tour"
-            />
-          </div>
-
-          <div class="package-body">
-            <h3>Kerala Holiday</h3>
-
-            <div class="package-info">
-              <span>📅 5 Nights / 6 Days</span>
-              <span>📍 Kerala</span>
-            </div>
-
-            <p class="package-description">
-              Explore Munnar, Thekkady, Alleppey and Kerala's
-              beautiful backwaters.
-            </p>
-
-            <div class="package-bottom">
-              <div class="price">
-                <small>Starting from</small>
-                <strong>Get Best Price</strong>
-              </div>
-
-              <div class="package-actions">
-                <button type="button" class="details-btn" onclick="showPackageDetails('Kerala Holiday')">View Details</button>
-                <a
-                  class="small-btn"
-                  href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20am%20interested%20in%20the%20Kerala%20tour."
-                  target="_blank"
-                >
-                  Enquire
-                </a>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- PACKAGE 4 -->
-
-        <article class="package-card" data-name="Goa Getaway" data-destination="Goa" data-types="Honeymoon,Beach Holiday">
-          <div class="package-image">
-            <span class="tag">Honeymoon</span>
-            <img
-              src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=1000&q=80"
-              alt="Goa Tour"
-            />
-          </div>
-
-          <div class="package-body">
-            <h3>Goa Getaway</h3>
-
-            <div class="package-info">
-              <span>📅 3 Nights / 4 Days</span>
-              <span>📍 Goa</span>
-            </div>
-
-            <p class="package-description">
-              Beaches, sightseeing, relaxing stays and memorable
-              experiences in Goa.
-            </p>
-
-            <div class="package-bottom">
-              <div class="price">
-                <small>Starting from</small>
-                <strong>Get Best Price</strong>
-              </div>
-
-              <div class="package-actions">
-                <button type="button" class="details-btn" onclick="showPackageDetails('Goa Getaway')">View Details</button>
-                <a
-                  class="small-btn"
-                  href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20am%20interested%20in%20the%20Goa%20tour."
-                  target="_blank"
-                >
-                  Enquire
-                </a>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- PACKAGE 5 -->
-
-        <article class="package-card" data-name="Himachal Explorer" data-destination="Himachal" data-types="Adventure">
-          <div class="package-image">
-            <span class="tag">Adventure</span>
-            <img
-              src="https://images.unsplash.com/photo-1504598318550-17eba1008a68?auto=format&fit=crop&w=1000&q=80"
-              alt="Himachal Tour"
-            />
-          </div>
-
-          <div class="package-body">
-            <h3>Himachal Explorer</h3>
-
-            <div class="package-info">
-              <span>📅 6 Nights / 7 Days</span>
-              <span>📍 Himachal</span>
-            </div>
-
-            <p class="package-description">
-              Discover Shimla, Manali, mountains, valleys and
-              beautiful Himalayan landscapes.
-            </p>
-
-            <div class="package-bottom">
-              <div class="price">
-                <small>Starting from</small>
-                <strong>Get Best Price</strong>
-              </div>
-
-              <div class="package-actions">
-                <button type="button" class="details-btn" onclick="showPackageDetails('Himachal Explorer')">View Details</button>
-                <a
-                  class="small-btn"
-                  href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20am%20interested%20in%20the%20Himachal%20tour."
-                  target="_blank"
-                >
-                  Enquire
-                </a>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- PACKAGE 6 -->
-
-        <article class="package-card" data-name="Royal Rajasthan" data-destination="Rajasthan" data-types="Heritage Tour">
-          <div class="package-image">
-            <span class="tag">Heritage</span>
-            <img
-              src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=1000&q=80"
-              alt="Rajasthan Tour"
-            />
-          </div>
-
-          <div class="package-body">
-            <h3>Royal Rajasthan</h3>
-
-            <div class="package-info">
-              <span>📅 6 Nights / 7 Days</span>
-              <span>📍 Rajasthan</span>
-            </div>
-
-            <p class="package-description">
-              Jaipur, Jodhpur, Udaipur and the magnificent
-              heritage of Rajasthan.
-            </p>
-
-            <div class="package-bottom">
-              <div class="price">
-                <small>Starting from</small>
-                <strong>Get Best Price</strong>
-              </div>
-
-              <div class="package-actions">
-                <button type="button" class="details-btn" onclick="showPackageDetails('Royal Rajasthan')">View Details</button>
-                <a
-                  class="small-btn"
-                  href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20am%20interested%20in%20the%20Rajasthan%20tour."
-                  target="_blank"
-                >
-                  Enquire
-                </a>
-              </div>
-            </div>
-          </div>
-        </article>
-
-      </div>
-
-      <div class="no-results" id="noResults">
-        <h3>No package found</h3>
-        <p>Try another destination or travel type, or clear the filters to see all packages.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CATEGORIES -->
-
-  <section id="pilgrimage">
-    <div class="container">
-
-      <div class="section-heading">
-        <div class="eyebrow">Travel Your Way</div>
-        <h2>Find Your Perfect Holiday</h2>
-        <p>
-          Tell us what kind of trip you want and our travel team
-          can customize it for you.
-        </p>
-      </div>
-
-      <div class="category-grid">
-
-        <div class="category">
-          <div class="category-icon">👨‍👩‍👧‍👦</div>
-          <h3>Family Holidays</h3>
-          <p>Comfortable trips for the whole family.</p>
-        </div>
-
-        <div class="category">
-          <div class="category-icon">💑</div>
-          <h3>Honeymoon</h3>
-          <p>Romantic holidays designed for couples.</p>
-        </div>
-
-        <div class="category">
-          <div class="category-icon">🛕</div>
-          <h3>Pilgrimage</h3>
-          <p>Plan your spiritual journey across India.</p>
-        </div>
-
-        <div class="category">
-          <div class="category-icon">🏔️</div>
-          <h3>Adventure</h3>
-          <p>Explore India's mountains and nature.</p>
-        </div>
-
-        <div class="category">
-          <div class="category-icon">🌴</div>
-          <h3>Beach Holidays</h3>
-          <p>Relax at India's beautiful beaches.</p>
-        </div>
-
-        <div class="category">
-          <div class="category-icon">🏰</div>
-          <h3>Heritage Tours</h3>
-          <p>Experience India's rich history and culture.</p>
-        </div>
-
-        <div class="category">
-          <div class="category-icon">🚗</div>
-          <h3>Road Trips</h3>
-          <p>Customized journeys by road across India.</p>
-        </div>
-
-        <div class="category">
-          <div class="category-icon">✨</div>
-          <h3>Customized Tours</h3>
-          <p>Build your own holiday with T2 Travels.</p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- WHY T2 -->
-
-  <section class="why" id="about">
-    <div class="container">
-
-      <div class="section-heading">
-        <div class="eyebrow">Why T2 Travels?</div>
-        <h2>Travel With Confidence</h2>
-        <p>
-          We help you plan memorable domestic holidays with
-          personalized service and transparent communication.
-        </p>
-      </div>
-
-      <div class="why-grid">
-
-        <div class="why-card">
-          <div class="why-icon">💰</div>
-          <h3>Best Value</h3>
-          <p>
-            Get customized packages designed around your budget.
-          </p>
-        </div>
-
-        <div class="why-card">
-          <div class="why-icon">🤝</div>
-          <h3>Personal Service</h3>
-          <p>
-            Speak directly with our travel team for assistance.
-          </p>
-        </div>
-
-        <div class="why-card">
-          <div class="why-icon">🗺️</div>
-          <h3>Customized Trips</h3>
-          <p>
-            Choose destinations, hotels, transport and duration.
-          </p>
-        </div>
-
-        <div class="why-card">
-          <div class="why-icon">📞</div>
-          <h3>Easy Support</h3>
-          <p>
-            Quick enquiries and booking assistance through phone
-            and WhatsApp.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CTA -->
-
-  <section class="cta">
-    <div class="container">
-
-      <h2>Planning Your Next Trip?</h2>
+      <h2>Popular Destinations</h2>
 
       <p>
-        Tell T2 Travels where you want to go. We'll help you
-        create a domestic holiday that fits your budget and plans.
+        Explore some of India's most beautiful holiday and
+        pilgrimage destinations.
       </p>
 
-      <div class="hero-buttons" style="justify-content:center;">
+    </div>
 
-        <a href="tel:+919014954747" class="btn btn-light">
-          📞 Call 9014954747
-        </a>
+    <div class="destination-grid">
 
-        <a
-          href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20want%20to%20plan%20a%20trip%20in%20India."
-          class="btn btn-whatsapp"
-          target="_blank"
+      <div
+        class="destination-card"
+        onclick="filterByDestination('Kashmir')"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1566837497312-7be4c3c5c0f4?auto=format&fit=crop&w=900&q=80"
+          alt="Kashmir"
         >
-          💬 Plan on WhatsApp
-        </a>
+        <div class="destination-overlay">
+          <h3>🏔️ Kashmir</h3>
+        </div>
+      </div>
 
+      <div
+        class="destination-card"
+        onclick="filterByDestination('Himachal')"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1504598318550-17eba1008a68?auto=format&fit=crop&w=900&q=80"
+          alt="Himachal"
+        >
+        <div class="destination-overlay">
+          <h3>🏔️ Himachal</h3>
+        </div>
+      </div>
+
+      <div
+        class="destination-card"
+        onclick="filterByDestination('Kerala')"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=900&q=80"
+          alt="Kerala"
+        >
+        <div class="destination-overlay">
+          <h3>🌴 Kerala</h3>
+        </div>
+      </div>
+
+      <div
+        class="destination-card"
+        onclick="filterByDestination('Goa')"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=900&q=80"
+          alt="Goa"
+        >
+        <div class="destination-overlay">
+          <h3>🏖️ Goa</h3>
+        </div>
+      </div>
+
+      <div
+        class="destination-card"
+        onclick="filterByDestination('Rajasthan')"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=900&q=80"
+          alt="Rajasthan"
+        >
+        <div class="destination-overlay">
+          <h3>🏰 Rajasthan</h3>
+        </div>
+      </div>
+
+      <div
+        class="destination-card"
+        onclick="filterByDestination('Uttarakhand')"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&fit=crop&w=900&q=80"
+          alt="Uttarakhand"
+        >
+        <div class="destination-overlay">
+          <h3>🛕 Uttarakhand</h3>
+        </div>
+      </div>
+
+      <div
+        class="destination-card"
+        onclick="filterByDestination('Andaman')"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=900&q=80"
+          alt="Andaman"
+        >
+        <div class="destination-overlay">
+          <h3>🌊 Andaman</h3>
+        </div>
+      </div>
+
+      <div
+        class="destination-card"
+        onclick="filterByDestination('Goa')"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=900&q=80"
+          alt="Beach Holidays"
+        >
+        <div class="destination-overlay">
+          <h3>🌴 Beach Holidays</h3>
+        </div>
       </div>
 
     </div>
-  </section>
 
-  <!-- CONTACT -->
+  </div>
 
-  <section class="contact-section" id="contact">
+</section>
 
-    <div class="container">
+<!-- PACKAGES -->
 
-      <div class="section-heading">
-        <div class="eyebrow">Get In Touch</div>
-        <h2>Plan Your Trip With T2 Travels</h2>
+<section class="packages" id="packages">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <div class="eyebrow">T2 Travels</div>
+
+      <h2>Popular Tour Packages</h2>
+
+      <p>
+        Choose from our most popular domestic holiday packages.
+        Prices can be customized according to your requirements.
+      </p>
+
+    </div>
+
+    <div class="results-bar">
+
+      <span id="resultsText">Showing all 6 packages</span>
+
+      <button
+        type="button"
+        class="clear-btn"
+        onclick="clearPackageFilters()"
+      >
+        Clear Search
+      </button>
+
+    </div>
+
+    <div class="package-grid">
+
+      <!-- KASHMIR -->
+
+      <article
+        class="package-card"
+        data-name="Kashmir Paradise Tour"
+        data-destination="Kashmir"
+        data-types="Family Holiday,Honeymoon"
+      >
+
+        <div class="package-image">
+
+          <span class="tag">Popular</span>
+
+          <img
+            src="https://images.unsplash.com/photo-1566837497312-7be4c3c5c0f4?auto=format&fit=crop&w=1000&q=80"
+            alt="Kashmir Tour"
+          >
+
+        </div>
+
+        <div class="package-body">
+
+          <h3>Kashmir Paradise Tour</h3>
+
+          <div class="package-info">
+            <span>📅 5 Nights / 6 Days</span>
+            <span>📍 Kashmir</span>
+          </div>
+
+          <p class="package-description">
+            Srinagar, Gulmarg, Pahalgam and Sonamarg.
+            Perfect for families and couples.
+          </p>
+
+          <div class="package-bottom">
+
+            <div class="price">
+              <small>Starting from</small>
+              <strong>Get Best Price</strong>
+            </div>
+
+            <div>
+              <button
+                type="button"
+                class="small-btn details-btn"
+                onclick="showPackageDetails('Kashmir Paradise Tour')"
+              >
+                View Details
+              </button>
+
+              <a
+                class="small-btn"
+                href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20am%20interested%20in%20the%20Kashmir%20tour."
+                target="_blank"
+              >
+                Enquire
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+      <!-- CHAR DHAM -->
+
+      <article
+        class="package-card"
+        data-name="Char Dham Yatra"
+        data-destination="Uttarakhand"
+        data-types="Pilgrimage"
+      >
+
+        <div class="package-image">
+
+          <span class="tag">Pilgrimage</span>
+
+          <img
+            src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&fit=crop&w=1000&q=80"
+            alt="Char Dham"
+          >
+
+        </div>
+
+        <div class="package-body">
+
+          <h3>Char Dham Yatra</h3>
+
+          <div class="package-info">
+            <span>📅 Custom Duration</span>
+            <span>📍 Uttarakhand</span>
+          </div>
+
+          <p class="package-description">
+            Visit Yamunotri, Gangotri, Kedarnath and Badrinath
+            with a comfortable pilgrimage itinerary.
+          </p>
+
+          <div class="package-bottom">
+
+            <div class="price">
+              <small>Starting from</small>
+              <strong>Get Best Price</strong>
+            </div>
+
+            <div>
+
+              <button
+                type="button"
+                class="small-btn details-btn"
+                onclick="showPackageDetails('Char Dham Yatra')"
+              >
+                View Details
+              </button>
+
+              <a
+                class="small-btn"
+                href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20am%20interested%20in%20the%20Char%20Dham%20Yatra."
+                target="_blank"
+              >
+                Enquire
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+      <!-- KERALA -->
+
+      <article
+        class="package-card"
+        data-name="Kerala Holiday"
+        data-destination="Kerala"
+        data-types="Family Holiday"
+      >
+
+        <div class="package-image">
+
+          <span class="tag">Family</span>
+
+          <img
+            src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1000&q=80"
+            alt="Kerala Tour"
+          >
+
+        </div>
+
+        <div class="package-body">
+
+          <h3>Kerala Holiday</h3>
+
+          <div class="package-info">
+            <span>📅 5 Nights / 6 Days</span>
+            <span>📍 Kerala</span>
+          </div>
+
+          <p class="package-description">
+            Explore Munnar, Thekkady, Alleppey and Kerala's
+            beautiful backwaters.
+          </p>
+
+          <div class="package-bottom">
+
+            <div class="price">
+              <small>Starting from</small>
+              <strong>Get Best Price</strong>
+            </div>
+
+            <div>
+
+              <button
+                type="button"
+                class="small-btn details-btn"
+                onclick="showPackageDetails('Kerala Holiday')"
+              >
+                View Details
+              </button>
+
+              <a
+                class="small-btn"
+                href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20am%20interested%20in%20the%20Kerala%20tour."
+                target="_blank"
+              >
+                Enquire
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+      <!-- GOA -->
+
+      <article
+        class="package-card"
+        data-name="Goa Getaway"
+        data-destination="Goa"
+        data-types="Honeymoon,Beach Holiday"
+      >
+
+        <div class="package-image">
+
+          <span class="tag">Honeymoon</span>
+
+          <img
+            src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=1000&q=80"
+            alt="Goa Tour"
+          >
+
+        </div>
+
+        <div class="package-body">
+
+          <h3>Goa Getaway</h3>
+
+          <div class="package-info">
+            <span>📅 3 Nights / 4 Days</span>
+            <span>📍 Goa</span>
+          </div>
+
+          <p class="package-description">
+            Beaches, sightseeing, relaxing stays and memorable
+            experiences in Goa.
+          </p>
+
+          <div class="package-bottom">
+
+            <div class="price">
+              <small>Starting from</small>
+              <strong>Get Best Price</strong>
+            </div>
+
+            <div>
+
+              <button
+                type="button"
+                class="small-btn details-btn"
+                onclick="showPackageDetails('Goa Getaway')"
+              >
+                View Details
+              </button>
+
+              <a
+                class="small-btn"
+                href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20am%20interested%20in%20the%20Goa%20tour."
+                target="_blank"
+              >
+                Enquire
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+      <!-- HIMACHAL -->
+
+      <article
+        class="package-card"
+        data-name="Himachal Explorer"
+        data-destination="Himachal"
+        data-types="Adventure"
+      >
+
+        <div class="package-image">
+
+          <span class="tag">Adventure</span>
+
+          <img
+            src="https://images.unsplash.com/photo-1504598318550-17eba1008a68?auto=format&fit=crop&w=1000&q=80"
+            alt="Himachal Tour"
+          >
+
+        </div>
+
+        <div class="package-body">
+
+          <h3>Himachal Explorer</h3>
+
+          <div class="package-info">
+            <span>📅 6 Nights / 7 Days</span>
+            <span>📍 Himachal</span>
+          </div>
+
+          <p class="package-description">
+            Discover Shimla, Manali, mountains, valleys and
+            beautiful Himalayan landscapes.
+          </p>
+
+          <div class="package-bottom">
+
+            <div class="price">
+              <small>Starting from</small>
+              <strong>Get Best Price</strong>
+            </div>
+
+            <div>
+
+              <button
+                type="button"
+                class="small-btn details-btn"
+                onclick="showPackageDetails('Himachal Explorer')"
+              >
+                View Details
+              </button>
+
+              <a
+                class="small-btn"
+                href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20am%20interested%20in%20the%20Himachal%20tour."
+                target="_blank"
+              >
+                Enquire
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+      <!-- RAJASTHAN -->
+
+      <article
+        class="package-card"
+        data-name="Royal Rajasthan"
+        data-destination="Rajasthan"
+        data-types="Heritage Tour"
+      >
+
+        <div class="package-image">
+
+          <span class="tag">Heritage</span>
+
+          <img
+            src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=1000&q=80"
+            alt="Rajasthan Tour"
+          >
+
+        </div>
+
+        <div class="package-body">
+
+          <h3>Royal Rajasthan</h3>
+
+          <div class="package-info">
+            <span>📅 6 Nights / 7 Days</span>
+            <span>📍 Rajasthan</span>
+          </div>
+
+          <p class="package-description">
+            Jaipur, Jodhpur, Udaipur and the magnificent
+            heritage of Rajasthan.
+          </p>
+
+          <div class="package-bottom">
+
+            <div class="price">
+              <small>Starting from</small>
+              <strong>Get Best Price</strong>
+            </div>
+
+            <div>
+
+              <button
+                type="button"
+                class="small-btn details-btn"
+                onclick="showPackageDetails('Royal Rajasthan')"
+              >
+                View Details
+              </button>
+
+              <a
+                class="small-btn"
+                href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20am%20interested%20in%20the%20Rajasthan%20tour."
+                target="_blank"
+              >
+                Enquire
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+    <div id="noResults">
+      <h3>No matching packages found</h3>
+      <p>Try another destination or tour type.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CATEGORIES -->
+
+<section id="pilgrimage">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <div class="eyebrow">Travel Your Way</div>
+
+      <h2>Find Your Perfect Holiday</h2>
+
+      <p>
+        Tell us what kind of trip you want and our travel team
+        can customize it for you.
+      </p>
+
+    </div>
+
+    <div class="category-grid">
+
+      <div class="category">
+        <div class="category-icon">👨‍👩‍👧‍👦</div>
+        <h3>Family Holidays</h3>
+        <p>Comfortable trips for the whole family.</p>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">💑</div>
+        <h3>Honeymoon</h3>
+        <p>Romantic holidays designed for couples.</p>
+      </div>
+
+      <div
+        class="category"
+        style="cursor:pointer"
+        onclick="filterByDestination('Uttarakhand')"
+      >
+        <div class="category-icon">🛕</div>
+        <h3>Pilgrimage</h3>
+        <p>Plan your spiritual journey across India.</p>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">🏔️</div>
+        <h3>Adventure</h3>
+        <p>Explore India's mountains and nature.</p>
+      </div>
+
+      <div
+        class="category"
+        style="cursor:pointer"
+        onclick="filterByDestination('Goa')"
+      >
+        <div class="category-icon">🌴</div>
+        <h3>Beach Holidays</h3>
+        <p>Relax at India's beautiful beaches.</p>
+      </div>
+
+      <div
+        class="category"
+        style="cursor:pointer"
+        onclick="filterByDestination('Rajasthan')"
+      >
+        <div class="category-icon">🏰</div>
+        <h3>Heritage Tours</h3>
+        <p>Experience India's rich history and culture.</p>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">🚗</div>
+        <h3>Road Trips</h3>
+        <p>Customized journeys by road across India.</p>
+      </div>
+
+      <div
+        class="category"
+        style="cursor:pointer"
+        onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
+      >
+        <div class="category-icon">✨</div>
+        <h3>Customized Tours</h3>
+        <p>Build your own holiday with T2 Travels.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- WHY T2 -->
+
+<section class="why" id="about">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <div class="eyebrow">Why T2 Travels?</div>
+
+      <h2>Travel With Confidence</h2>
+
+      <p>
+        We help you plan memorable domestic holidays with
+        personalized service and transparent communication.
+      </p>
+
+    </div>
+
+    <div class="why-grid">
+
+      <div class="why-card">
+        <div class="why-icon">💰</div>
+        <h3>Best Value</h3>
         <p>
-          Send us your travel requirements and we'll get back
-          to you with a suitable package.
+          Get customized packages designed around your budget.
         </p>
       </div>
 
-      <div class="contact-grid">
-
-        <div class="contact-info">
-
-          <h3>Contact T2 Travels</h3>
-
-          <div class="contact-item">
-            <div class="contact-item-icon">📍</div>
-            <div>
-              <strong>Location</strong>
-              Hyderabad, Telangana, India
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-item-icon">📞</div>
-            <div>
-              <strong>Phone</strong>
-              <a href="tel:+919014954747">9014954747</a>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-item-icon">💬</div>
-            <div>
-              <strong>WhatsApp</strong>
-              <a
-                href="https://wa.me/919014954747"
-                target="_blank"
-              >
-                Chat with T2 Travels
-              </a>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-item-icon">🇮🇳</div>
-            <div>
-              <strong>Specialization</strong>
-              Domestic Tours & Travel Packages Across India
-            </div>
-          </div>
-
-        </div>
-
-        <div class="contact-form">
-
-          <h3>Send an Enquiry</h3>
-
-          <form onsubmit="sendWhatsApp(event)">
-
-            <input
-              id="name"
-              type="text"
-              placeholder="Your Name"
-              required
-            />
-
-            <input
-              id="phone"
-              type="tel"
-              placeholder="Mobile Number"
-              required
-            />
-
-            <select id="destination" required>
-              <option value="">Select Destination</option>
-              <option>Kashmir</option>
-              <option>Himachal Pradesh</option>
-              <option>Uttarakhand</option>
-              <option>Char Dham</option>
-              <option>Ayodhya & Varanasi</option>
-              <option>Tirupati</option>
-              <option>Kerala</option>
-              <option>Goa</option>
-              <option>Rajasthan</option>
-              <option>North East India</option>
-              <option>Andaman</option>
-              <option>Other</option>
-            </select>
-
-            <input
-              id="travellers"
-              type="number"
-              min="1"
-              placeholder="Number of Travellers"
-              required
-            />
-
-            <textarea
-              id="message"
-              placeholder="Tell us about your trip, preferred dates, hotel requirements, etc."
-            ></textarea>
-
-            <button class="btn btn-whatsapp" type="submit">
-              💬 Send Enquiry on WhatsApp
-            </button>
-
-          </form>
-
-        </div>
-
+      <div class="why-card">
+        <div class="why-icon">🤝</div>
+        <h3>Personal Service</h3>
+        <p>
+          Speak directly with our travel team for assistance.
+        </p>
       </div>
 
-    </div>
-  </section>
-
-  <!-- PACKAGE DETAILS MODAL -->\n  <div class="modal" id="packageModal" onclick="closePackageDetails(event)">\n    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle" onclick="event.stopPropagation()">\n      <button type="button" class="modal-close" onclick="closePackageDetails()" aria-label="Close">×</button>\n      <h2 id="modalTitle">Package Details</h2>\n      <div class="modal-meta" id="modalMeta"></div>\n      <h3>Package Overview</h3>\n      <p id="modalDescription"></p>\n      <h3>Pricing</h3>\n      <p>Contact T2 Travels for the current package price based on your travel dates, hotel preference, transport and number of travellers.</p>\n      <div class="modal-actions">\n        <a id="modalWhatsApp" class="btn btn-whatsapp" href="#" target="_blank">💬 Enquire on WhatsApp</a>\n        <button type="button" class="btn btn-light" onclick="closePackageDetails()">Close</button>\n      </div>\n    </div>\n  </div>\n\n  <!-- FOOTER -->
-
-  <footer>
-
-    <div class="container">
-
-      <div class="footer-grid">
-
-        <div>
-          <div class="footer-logo">
-            T2 <span>Travels</span>
-          </div>
-
-          <p>
-            Your trusted travel partner from Hyderabad for
-            memorable domestic holidays and pilgrimage journeys
-            across India.
-          </p>
-        </div>
-
-        <div>
-          <h4>Popular Destinations</h4>
-          <ul>
-            <li><a href="#packages">Kashmir</a></li>
-            <li><a href="#packages">Himachal</a></li>
-            <li><a href="#packages">Kerala</a></li>
-            <li><a href="#packages">Goa</a></li>
-            <li><a href="#packages">Rajasthan</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4>Tour Types</h4>
-          <ul>
-            <li><a href="#pilgrimage">Family Tours</a></li>
-            <li><a href="#pilgrimage">Honeymoon</a></li>
-            <li><a href="#pilgrimage">Pilgrimage</a></li>
-            <li><a href="#pilgrimage">Adventure</a></li>
-            <li><a href="#pilgrimage">Customized Tours</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4>Contact</h4>
-          <ul>
-            <li>📍 Hyderabad, Telangana</li>
-            <li>📞 9014954747</li>
-            <li>
-              <a href="https://wa.me/919014954747" target="_blank">
-                💬 WhatsApp Us
-              </a>
-            </li>
-          </ul>
-        </div>
-
+      <div class="why-card">
+        <div class="why-icon">🗺️</div>
+        <h3>Customized Trips</h3>
+        <p>
+          Choose destinations, hotels, transport and duration.
+        </p>
       </div>
 
-      <div class="copyright">
-        © 2026 T2 Travels. All Rights Reserved.
+      <div class="why-card">
+        <div class="why-icon">📞</div>
+        <h3>Easy Support</h3>
+        <p>
+          Quick enquiries and booking assistance through phone
+          and WhatsApp.
+        </p>
       </div>
 
     </div>
 
-  </footer>
+  </div>
 
-  <!-- WHATSAPP FLOATING BUTTON -->
+</section>
 
-  <a
-    class="whatsapp"
-    href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20want%20to%20plan%20a%20trip%20in%20India."
-    target="_blank"
-    aria-label="Chat on WhatsApp"
+<!-- CTA -->
+
+<section class="cta">
+
+  <div class="container">
+
+    <h2>Planning Your Next Trip?</h2>
+
+    <p>
+      Tell T2 Travels where you want to go. We'll help you
+      create a domestic holiday that fits your budget and plans.
+    </p>
+
+    <div
+      class="hero-buttons"
+      style="justify-content:center"
+    >
+
+      <a
+        href="tel:+919014954747"
+        class="btn btn-light"
+      >
+        📞 Call 9014954747
+      </a>
+
+      <a
+        href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20want%20to%20plan%20a%20trip%20in%20India."
+        class="btn btn-whatsapp"
+        target="_blank"
+      >
+        💬 Plan on WhatsApp
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact-section" id="contact">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <div class="eyebrow">Get In Touch</div>
+
+      <h2>Plan Your Trip With T2 Travels</h2>
+
+      <p>
+        Send us your travel requirements and we'll get back
+        to you with a suitable package.
+      </p>
+
+    </div>
+
+    <div class="contact-grid">
+
+      <div class="contact-info">
+
+        <h3>Contact T2 Travels</h3>
+
+        <div class="contact-item">
+
+          <div class="contact-item-icon">📍</div>
+
+          <div>
+            <strong>Location</strong>
+            Hyderabad, Telangana, India
+          </div>
+
+        </div>
+
+        <div class="contact-item">
+
+          <div class="contact-item-icon">📞</div>
+
+          <div>
+            <strong>Phone</strong>
+            <a href="tel:+919014954747">
+              9014954747
+            </a>
+          </div>
+
+        </div>
+
+        <div class="contact-item">
+
+          <div class="contact-item-icon">💬</div>
+
+          <div>
+            <strong>WhatsApp</strong>
+            <a
+              href="https://wa.me/919014954747"
+              target="_blank"
+            >
+              Chat with T2 Travels
+            </a>
+          </div>
+
+        </div>
+
+        <div class="contact-item">
+
+          <div class="contact-item-icon">🇮🇳</div>
+
+          <div>
+            <strong>Specialization</strong>
+            Domestic Tours & Travel Packages Across India
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="contact-form">
+
+        <h3>Send an Enquiry</h3>
+
+        <form onsubmit="sendWhatsApp(event)">
+
+          <input
+            id="name"
+            type="text"
+            placeholder="Your Name"
+            required
+          >
+
+          <input
+            id="phone"
+            type="tel"
+            placeholder="Mobile Number"
+            required
+          >
+
+          <select id="destination" required>
+
+            <option value="">
+              Select Destination
+            </option>
+
+            <option>Kashmir</option>
+            <option>Himachal Pradesh</option>
+            <option>Uttarakhand</option>
+            <option>Char Dham</option>
+            <option>Ayodhya & Varanasi</option>
+            <option>Tirupati</option>
+            <option>Kerala</option>
+            <option>Goa</option>
+            <option>Rajasthan</option>
+            <option>North East India</option>
+            <option>Andaman</option>
+            <option>Other</option>
+
+          </select>
+
+          <input
+            id="travellers"
+            type="number"
+            min="1"
+            placeholder="Number of Travellers"
+            required
+          >
+
+          <textarea
+            id="message"
+            placeholder="Tell us about your trip, preferred dates, hotel requirements, etc."
+          ></textarea>
+
+          <button
+            class="btn btn-whatsapp"
+            type="submit"
+          >
+            💬 Send Enquiry on WhatsApp
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div>
+
+        <div class="footer-logo">
+          T2 <span>Travels</span>
+        </div>
+
+        <p>
+          Your trusted travel partner from Hyderabad for
+          memorable domestic holidays and pilgrimage journeys
+          across India.
+        </p>
+
+      </div>
+
+      <div>
+
+        <h4>Popular Destinations</h4>
+
+        <ul>
+          <li>
+            <a href="#packages">Kashmir</a>
+          </li>
+
+          <li>
+            <a href="#packages">Himachal</a>
+          </li>
+
+          <li>
+            <a href="#packages">Kerala</a>
+          </li>
+
+          <li>
+            <a href="#packages">Goa</a>
+          </li>
+
+          <li>
+            <a href="#packages">Rajasthan</a>
+          </li>
+        </ul>
+
+      </div>
+
+      <div>
+
+        <h4>Tour Types</h4>
+
+        <ul>
+
+          <li>
+            <a href="#pilgrimage">
+              Family Tours
+            </a>
+          </li>
+
+          <li>
+            <a href="#pilgrimage">
+              Honeymoon
+            </a>
+          </li>
+
+          <li>
+            <a href="#pilgrimage">
+              Pilgrimage
+            </a>
+          </li>
+
+          <li>
+            <a href="#pilgrimage">
+              Adventure
+            </a>
+          </li>
+
+          <li>
+            <a href="#pilgrimage">
+              Customized Tours
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div>
+
+        <h4>Contact</h4>
+
+        <ul>
+
+          <li>
+            📍 Hyderabad, Telangana
+          </li>
+
+          <li>
+            📞 9014954747
+          </li>
+
+          <li>
+            <a
+              href="https://wa.me/919014954747"
+              target="_blank"
+            >
+              💬 WhatsApp Us
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 T2 Travels. All Rights Reserved.
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- PACKAGE DETAILS MODAL -->
+
+<div
+  class="modal"
+  id="packageModal"
+  onclick="closePackageDetails(event)"
+>
+
+  <div
+    class="modal-box"
+    onclick="event.stopPropagation()"
   >
-    ☎
-  </a>
 
-  <script>
+    <button
+      type="button"
+      class="modal-close"
+      onclick="closePackageDetails()"
+      aria-label="Close"
+    >
+      ×
+    </button>
 
-    /* MOBILE MENU */
+    <div class="eyebrow">
+      T2 Travels
+    </div>
 
-    function toggleMenu() {
-      document.getElementById("navLinks").classList.toggle("active");
-    }
+    <h2 id="modalTitle">
+      Package Details
+    </h2>
 
-    /* CLOSE MENU WHEN LINK IS CLICKED */
+    <div
+      class="modal-meta"
+      id="modalMeta"
+    ></div>
 
-    document.querySelectorAll(".nav-links a").forEach(link => {
-      link.addEventListener("click", () => {
-        document.getElementById("navLinks").classList.remove("active");
+    <p
+      class="modal-description"
+      id="modalDescription"
+    ></p>
+
+    <h3 style="color:#102033;margin-bottom:10px;">
+      What happens next?
+    </h3>
+
+    <p style="margin-bottom:22px;">
+      Contact T2 Travels for the latest itinerary,
+      hotel options, transport details and customized pricing.
+    </p>
+
+    <div class="modal-buttons">
+
+      <a
+        id="modalWhatsApp"
+        href="#"
+        target="_blank"
+        class="btn btn-whatsapp"
+      >
+        💬 Enquire on WhatsApp
+      </a>
+
+      <a
+        href="tel:+919014954747"
+        class="btn btn-primary"
+      >
+        📞 Call T2 Travels
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- FLOATING WHATSAPP -->
+
+<a
+  class="whatsapp"
+  href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20want%20to%20plan%20a%20trip%20in%20India."
+  target="_blank"
+  aria-label="Chat on WhatsApp"
+>
+  ☎
+</a>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+/* ================================
+   MOBILE MENU
+================================ */
+
+function toggleMenu(){
+
+  const nav =
+    document.getElementById("navLinks");
+
+  if(nav){
+    nav.classList.toggle("active");
+  }
+
+}
+
+
+/* Close mobile menu after navigation */
+
+document.addEventListener("DOMContentLoaded",function(){
+
+  document
+    .querySelectorAll(".nav-links a")
+    .forEach(function(link){
+
+      link.addEventListener("click",function(){
+
+        const nav =
+          document.getElementById("navLinks");
+
+        if(nav){
+          nav.classList.remove("active");
+        }
+
       });
+
     });
 
-    /* SEARCH / PACKAGE FILTER */\n    function searchPackages() {\n      const destination = document.getElementById("searchDestination").value.trim().toLowerCase();\n      const travelType = document.getElementById("travelType").value.trim().toLowerCase();\n      const cards = document.querySelectorAll(".package-card");\n      let visible = 0;\n\n      cards.forEach(card => {\n        const cardDestination = (card.dataset.destination || "").toLowerCase();\n        const cardTypes = (card.dataset.types || "").toLowerCase();\n        const destinationMatch = !destination || cardDestination.includes(destination);\n        const typeMatch = !travelType || cardTypes.includes(travelType);\n        if (destinationMatch && typeMatch) { card.classList.remove("hidden"); visible++; }\n        else { card.classList.add("hidden"); }\n      });\n\n      document.getElementById("resultsText").textContent =\n        visible === 0 ? "No matching packages found" : `Showing ${visible} package${visible === 1 ? "" : "s"}`;\n      document.getElementById("noResults").classList.toggle("show", visible === 0);\n      document.getElementById("packages").scrollIntoView({ behavior:"smooth", block:"start" });\n    }\n\n    function clearPackageFilters() {\n      document.getElementById("searchDestination").value = "";\n      document.getElementById("travelType").value = "";\n      document.querySelectorAll(".package-card").forEach(card => card.classList.remove("hidden"));\n      document.getElementById("resultsText").textContent = "Showing all 6 packages";\n      document.getElementById("noResults").classList.remove("show");\n    }\n\n    function filterByDestination(destination) {\n      document.getElementById("searchDestination").value = destination;\n      document.getElementById("travelType").value = "";\n      searchPackages();\n    }\n\n    /* PACKAGE DETAILS */\n    const packageDetails = {\n      "Kashmir Paradise Tour": { duration:"5 Nights / 6 Days", destination:"Kashmir", description:"Srinagar, Gulmarg, Pahalgam and Sonamarg. Perfect for families and couples." },\n      "Char Dham Yatra": { duration:"Custom Duration", destination:"Uttarakhand", description:"Visit Yamunotri, Gangotri, Kedarnath and Badrinath with a comfortable pilgrimage itinerary." },\n      "Kerala Holiday": { duration:"5 Nights / 6 Days", destination:"Kerala", description:"Explore Munnar, Thekkady, Alleppey and Kerala's beautiful backwaters." },\n      "Goa Getaway": { duration:"3 Nights / 4 Days", destination:"Goa", description:"Beaches, sightseeing, relaxing stays and memorable experiences in Goa." },\n      "Himachal Explorer": { duration:"6 Nights / 7 Days", destination:"Himachal", description:"Discover Shimla, Manali, mountains, valleys and beautiful Himalayan landscapes." },\n      "Royal Rajasthan": { duration:"6 Nights / 7 Days", destination:"Rajasthan", description:"Jaipur, Jodhpur, Udaipur and the magnificent heritage of Rajasthan." }\n    };\n\n    function showPackageDetails(packageName) {\n      const details = packageDetails[packageName];\n      if (!details) return;\n      document.getElementById("modalTitle").textContent = packageName;\n      document.getElementById("modalMeta").innerHTML = `<span>📅 ${details.duration}</span><span>📍 ${details.destination}</span>`;\n      document.getElementById("modalDescription").textContent = details.description;\n      const message = `Hello T2 Travels, I am interested in the ${packageName}. Please share the current itinerary and best price.`;\n      document.getElementById("modalWhatsApp").href = "https://wa.me/919014954747?text=" + encodeURIComponent(message);\n      document.getElementById("packageModal").classList.add("show");\n      document.body.classList.add("modal-open");\n    }\n\n    function closePackageDetails(event) {\n      if (event && event.target !== document.getElementById("packageModal")) return;\n      document.getElementById("packageModal").classList.remove("show");\n      document.body.classList.remove("modal-open");\n    }\n\n    document.addEventListener("keydown", event => {\n      if (event.key === "Escape") closePackageDetails();\n    });\n\n    /* CONTACT FORM -> WHATSAPP */
+});
 
-    function sendWhatsApp(event) {
 
-      event.preventDefault();
+/* ================================
+   SEARCH PACKAGES
+   IMPORTANT:
+   THIS DOES NOT OPEN WHATSAPP
+================================ */
 
-      const name =
-        document.getElementById("name").value;
+function searchPackages(){
 
-      const phone =
-        document.getElementById("phone").value;
+  const destinationInput =
+    document.getElementById("searchDestination");
 
-      const destination =
-        document.getElementById("destination").value;
+  const travelTypeInput =
+    document.getElementById("travelType");
 
-      const travellers =
-        document.getElementById("travellers").value;
+  const destination =
+    destinationInput
+      ? destinationInput.value.trim().toLowerCase()
+      : "";
 
-      const message =
-        document.getElementById("message").value;
+  const travelType =
+    travelTypeInput
+      ? travelTypeInput.value.trim().toLowerCase()
+      : "";
 
-      const text =
-`Hello T2 Travels,
+  const cards =
+    document.querySelectorAll(".package-card");
 
-I would like to enquire about a tour.
+  let visible = 0;
 
-Name: ${name}
-Mobile: ${phone}
-Destination: ${destination}
-Travellers: ${travellers}
+  cards.forEach(function(card){
 
-Trip Details:
-${message || "Please contact me with the available package options."}`;
+    const cardDestination =
+      (card.dataset.destination || "")
+      .toLowerCase();
 
-      const url =
-        "https://wa.me/919014954747?text=" +
-        encodeURIComponent(text);
+    const cardTypes =
+      (card.dataset.types || "")
+      .toLowerCase();
 
-      window.open(url, "_blank");
+    const destinationMatch =
+      destination === "" ||
+      cardDestination.includes(destination);
+
+    const typeMatch =
+      travelType === "" ||
+      cardTypes.includes(travelType);
+
+    if(destinationMatch && typeMatch){
+
+      card.classList.remove("hidden");
+
+      visible++;
+
+    }else{
+
+      card.classList.add("hidden");
+
     }
 
-  </script>
+  });
+
+
+  const resultsText =
+    document.getElementById("resultsText");
+
+  if(resultsText){
+
+    if(visible === 0){
+
+      resultsText.textContent =
+        "No matching packages found";
+
+    }else{
+
+      resultsText.textContent =
+        "Showing " +
+        visible +
+        " package" +
+        (visible === 1 ? "" : "s");
+
+    }
+
+  }
+
+
+  const noResults =
+    document.getElementById("noResults");
+
+  if(noResults){
+
+    noResults.classList.toggle(
+      "show",
+      visible === 0
+    );
+
+  }
+
+
+  const packagesSection =
+    document.getElementById("packages");
+
+  if(packagesSection){
+
+    packagesSection.scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+
+  }
+
+}
+
+
+/* ================================
+   CLEAR SEARCH
+================================ */
+
+function clearPackageFilters(){
+
+  const destination =
+    document.getElementById("searchDestination");
+
+  const travelType =
+    document.getElementById("travelType");
+
+  if(destination){
+    destination.value = "";
+  }
+
+  if(travelType){
+    travelType.value = "";
+  }
+
+
+  document
+    .querySelectorAll(".package-card")
+    .forEach(function(card){
+
+      card.classList.remove("hidden");
+
+    });
+
+
+  const resultsText =
+    document.getElementById("resultsText");
+
+  if(resultsText){
+
+    resultsText.textContent =
+      "Showing all 6 packages";
+
+  }
+
+
+  const noResults =
+    document.getElementById("noResults");
+
+  if(noResults){
+
+    noResults.classList.remove("show");
+
+  }
+
+}
+
+
+/* ================================
+   DESTINATION CLICK
+================================ */
+
+function filterByDestination(destination){
+
+  const searchDestination =
+    document.getElementById("searchDestination");
+
+  const travelType =
+    document.getElementById("travelType");
+
+  if(searchDestination){
+
+    searchDestination.value =
+      destination;
+
+  }
+
+  if(travelType){
+
+    travelType.value = "";
+
+  }
+
+  searchPackages();
+
+}
+
+
+/* ================================
+   PACKAGE DETAILS
+================================ */
+
+const packageDetails = {
+
+  "Kashmir Paradise Tour":{
+    duration:"5 Nights / 6 Days",
+    destination:"Kashmir",
+    description:
+      "Srinagar, Gulmarg, Pahalgam and Sonamarg. Perfect for families and couples."
+  },
+
+  "Char Dham Yatra":{
+    duration:"Custom Duration",
+    destination:"Uttarakhand",
+    description:
+      "Visit Yamunotri, Gangotri, Kedarnath and Badrinath with a comfortable pilgrimage itinerary."
+  },
+
+  "Kerala Holiday":{
+    duration:"5 Nights / 6 Days",
+    destination:"Kerala",
+    description:
+      "Explore Munnar, Thekkady, Alleppey and Kerala's beautiful backwaters."
+  },
+
+  "Goa Getaway":{
+    duration:"3 Nights / 4 Days",
+    destination:"Goa",
+    description:
+      "Beaches, sightseeing, relaxing stays and memorable experiences in Goa."
+  },
+
+  "Himachal Explorer":{
+    duration:"6 Nights / 7 Days",
+    destination:"Himachal",
+    description:
+      "Discover Shimla, Manali, mountains, valleys and beautiful Himalayan landscapes."
+  },
+
+  "Royal Rajasthan":{
+    duration:"6 Nights / 7 Days",
+    destination:"Rajasthan",
+    description:
+      "Jaipur, Jodhpur, Udaipur and the magnificent heritage of Rajasthan."
+  }
+
+};
+
+
+/* ================================
+   OPEN PACKAGE DETAILS
+================================ */
+
+function showPackageDetails(packageName){
+
+  const details =
+    packageDetails[packageName];
+
+  if(!details){
+    return;
+  }
+
+
+  const modal =
+    document.getElementById("packageModal");
+
+  const title =
+    document.getElementById("modalTitle");
+
+  const meta =
+    document.getElementById("modalMeta");
+
+  const description =
+    document.getElementById("modalDescription");
+
+  const whatsapp =
+    document.getElementById("modalWhatsApp");
+
+
+  if(title){
+
+    title.textContent =
+      packageName;
+
+  }
+
+
+  if(meta){
+
+    meta.innerHTML =
+      "<span>📅 " +
+      details.duration +
+      "</span>" +
+
+      "<span>📍 " +
+      details.destination +
+      "</span>";
+
+  }
+
+
+  if(description){
+
+    description.textContent =
+      details.description;
+
+  }
+
+
+  if(whatsapp){
+
+    const message =
+      "Hello T2 Travels, I am interested in the " +
+      packageName +
+      ". Please share the current itinerary and best price.";
+
+    whatsapp.href =
+      "https://wa.me/919014954747?text=" +
+      encodeURIComponent(message);
+
+  }
+
+
+  if(modal){
+
+    modal.classList.add("show");
+
+  }
+
+}
+
+
+/* ================================
+   CLOSE PACKAGE DETAILS
+================================ */
+
+function closePackageDetails(event){
+
+  const modal =
+    document.getElementById("packageModal");
+
+  if(event && event.target !== modal){
+
+    return;
+
+  }
+
+  if(modal){
+
+    modal.classList.remove("show");
+
+  }
+
+}
+
+
+/* ESC KEY CLOSES MODAL */
+
+document.addEventListener("keydown",function(event){
+
+  if(event.key === "Escape"){
+
+    closePackageDetails();
+
+  }
+
+});
+
+
+/* ================================
+   CONTACT FORM -> WHATSAPP
+   THIS IS INTENTIONALLY WHATSAPP
+================================ */
+
+function sendWhatsApp(event){
+
+  event.preventDefault();
+
+
+  const name =
+    document.getElementById("name").value;
+
+  const phone =
+    document.getElementById("phone").value;
+
+  const destination =
+    document.getElementById("destination").value;
+
+  const travellers =
+    document.getElementById("travellers").value;
+
+  const message =
+    document.getElementById("message").value;
+
+
+  const text =
+    "Hello T2 Travels,\n\n" +
+
+    "I would like to enquire about a tour.\n\n" +
+
+    "Name: " +
+    name +
+    "\n" +
+
+    "Mobile: " +
+    phone +
+    "\n" +
+
+    "Destination: " +
+    destination +
+    "\n" +
+
+    "Travellers: " +
+    travellers +
+    "\n\n" +
+
+    "Trip Details:\n" +
+
+    (
+      message ||
+      "Please contact me with the available package options."
+    );
+
+
+  const url =
+    "https://wa.me/919014954747?text=" +
+    encodeURIComponent(text);
+
+
+  window.open(url,"_blank");
+
+}
+
+</script>
 
 </body>
 </html>
