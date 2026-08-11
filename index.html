@@ -684,6 +684,31 @@
       transform: scale(1.08);
     }
 
+
+    /* PACKAGE FILTER / DETAILS */
+    .package-card.hidden { display: none; }
+    .package-results { display:flex; justify-content:space-between; align-items:center; gap:15px; margin:-20px 0 25px; flex-wrap:wrap; }
+    .results-text { font-weight:700; color:var(--dark); }
+    .clear-btn { border:1px solid #dce3eb; background:white; color:var(--dark); padding:9px 14px; border-radius:8px; cursor:pointer; font-weight:700; }
+    .clear-btn:hover { border-color:var(--primary); color:var(--primary); }
+    .package-actions { display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
+    .details-btn { border:1px solid var(--primary); background:white; color:var(--primary); padding:9px 13px; border-radius:7px; font-size:13px; font-weight:700; cursor:pointer; }
+    .details-btn:hover { background:#eef5ff; }
+    .no-results { display:none; text-align:center; padding:35px 20px; background:white; border:1px dashed #ccd6e2; border-radius:var(--radius); margin-top:10px; }
+    .no-results.show { display:block; }
+    .modal { display:none; position:fixed; inset:0; background:rgba(5,20,40,.72); z-index:2000; padding:20px; overflow-y:auto; }
+    .modal.show { display:grid; place-items:center; }
+    .modal-content { width:min(720px,100%); background:white; border-radius:var(--radius); box-shadow:0 20px 60px rgba(0,0,0,.25); padding:30px; position:relative; animation:modalIn .2s ease-out; }
+    @keyframes modalIn { from { opacity:0; transform:translateY(12px) scale(.98); } to { opacity:1; transform:translateY(0) scale(1); } }
+    .modal-close { position:absolute; top:12px; right:15px; border:0; background:#f2f5f8; color:var(--dark); width:38px; height:38px; border-radius:50%; font-size:22px; cursor:pointer; }
+    .modal-content h2 { color:var(--dark); margin:0 45px 10px 0; font-size:30px; }
+    .modal-meta { display:flex; flex-wrap:wrap; gap:10px; margin:12px 0 20px; }
+    .modal-meta span { background:#eef5ff; color:var(--primary); padding:7px 11px; border-radius:20px; font-size:13px; font-weight:700; }
+    .modal-content h3 { color:var(--dark); margin:20px 0 8px; }
+    .modal-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:22px; }
+    body.modal-open { overflow:hidden; }
+    @media (max-width:600px) { .package-results { align-items:stretch; } .package-actions { justify-content:flex-start; } .modal-content { padding:24px 20px; } .modal-content h2 { font-size:25px; } }
+
     /* RESPONSIVE */
 
     @media (max-width: 950px) {
@@ -876,7 +901,7 @@
 
         <div class="field">
           <label>Where do you want to go?</label>
-          <input id="searchDestination" type="text" placeholder="Kashmir, Kerala, Goa..." />
+          <input id="searchDestination" type="text" placeholder="Kashmir, Kerala, Goa..." onkeydown="if(event.key==='Enter') searchPackages()" />
         </div>
 
         <div class="field">
@@ -887,6 +912,8 @@
             <option>Honeymoon</option>
             <option>Pilgrimage</option>
             <option>Adventure</option>
+            <option>Beach Holiday</option>
+            <option>Heritage Tour</option>
             <option>Weekend Trip</option>
           </select>
         </div>
@@ -926,7 +953,7 @@
 
       <div class="destination-grid">
 
-        <a href="#packages" class="destination">
+        <a href="#packages" class="destination" onclick="filterByDestination('Kashmir')">
           <img
             src="https://images.unsplash.com/photo-1566837497312-7be4c3c5c0f4?auto=format&fit=crop&w=900&q=80"
             alt="Kashmir"
@@ -936,7 +963,7 @@
           </div>
         </a>
 
-        <a href="#packages" class="destination">
+        <a href="#packages" class="destination" onclick="filterByDestination('Himachal')">
           <img
             src="https://images.unsplash.com/photo-1504598318550-17eba1008a68?auto=format&fit=crop&w=900&q=80"
             alt="Himachal Pradesh"
@@ -946,7 +973,7 @@
           </div>
         </a>
 
-        <a href="#packages" class="destination">
+        <a href="#packages" class="destination" onclick="filterByDestination('Kerala')">
           <img
             src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=900&q=80"
             alt="Kerala"
@@ -956,7 +983,7 @@
           </div>
         </a>
 
-        <a href="#packages" class="destination">
+        <a href="#packages" class="destination" onclick="filterByDestination('Goa')">
           <img
             src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=900&q=80"
             alt="Goa"
@@ -966,7 +993,7 @@
           </div>
         </a>
 
-        <a href="#packages" class="destination">
+        <a href="#packages" class="destination" onclick="filterByDestination('Rajasthan')">
           <img
             src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=900&q=80"
             alt="Rajasthan"
@@ -976,7 +1003,7 @@
           </div>
         </a>
 
-        <a href="#packages" class="destination">
+        <a href="#packages" class="destination" onclick="filterByDestination('Uttarakhand')">
           <img
             src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&fit=crop&w=900&q=80"
             alt="Uttarakhand"
@@ -1025,11 +1052,16 @@
         </p>
       </div>
 
+      <div class="package-results">
+        <div class="results-text" id="resultsText">Showing all 6 packages</div>
+        <button type="button" class="clear-btn" onclick="clearPackageFilters()">Clear Filters</button>
+      </div>
+
       <div class="package-grid">
 
         <!-- PACKAGE 1 -->
 
-        <article class="package-card">
+        <article class="package-card" data-name="Kashmir Paradise Tour" data-destination="Kashmir" data-types="Family Holiday,Honeymoon">
           <div class="package-image">
             <span class="tag">Popular</span>
             <img
@@ -1057,20 +1089,23 @@
                 <strong>Get Best Price</strong>
               </div>
 
-              <a
-                class="small-btn"
-                href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20am%20interested%20in%20the%20Kashmir%20tour."
-                target="_blank"
-              >
-                Enquire
-              </a>
+              <div class="package-actions">
+                <button type="button" class="details-btn" onclick="showPackageDetails('Kashmir Paradise Tour')">View Details</button>
+                <a
+                  class="small-btn"
+                  href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20am%20interested%20in%20the%20Kashmir%20tour."
+                  target="_blank"
+                >
+                  Enquire
+                </a>
+              </div>
             </div>
           </div>
         </article>
 
         <!-- PACKAGE 2 -->
 
-        <article class="package-card">
+        <article class="package-card" data-name="Char Dham Yatra" data-destination="Uttarakhand" data-types="Pilgrimage">
           <div class="package-image">
             <span class="tag">Pilgrimage</span>
             <img
@@ -1098,20 +1133,23 @@
                 <strong>Get Best Price</strong>
               </div>
 
-              <a
-                class="small-btn"
-                href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20am%20interested%20in%20the%20Char%20Dham%20Yatra."
-                target="_blank"
-              >
-                Enquire
-              </a>
+              <div class="package-actions">
+                <button type="button" class="details-btn" onclick="showPackageDetails('Char Dham Yatra')">View Details</button>
+                <a
+                  class="small-btn"
+                  href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20am%20interested%20in%20the%20Char%20Dham%20Yatra."
+                  target="_blank"
+                >
+                  Enquire
+                </a>
+              </div>
             </div>
           </div>
         </article>
 
         <!-- PACKAGE 3 -->
 
-        <article class="package-card">
+        <article class="package-card" data-name="Kerala Holiday" data-destination="Kerala" data-types="Family Holiday">
           <div class="package-image">
             <span class="tag">Family</span>
             <img
@@ -1139,20 +1177,23 @@
                 <strong>Get Best Price</strong>
               </div>
 
-              <a
-                class="small-btn"
-                href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20am%20interested%20in%20the%20Kerala%20tour."
-                target="_blank"
-              >
-                Enquire
-              </a>
+              <div class="package-actions">
+                <button type="button" class="details-btn" onclick="showPackageDetails('Kerala Holiday')">View Details</button>
+                <a
+                  class="small-btn"
+                  href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20am%20interested%20in%20the%20Kerala%20tour."
+                  target="_blank"
+                >
+                  Enquire
+                </a>
+              </div>
             </div>
           </div>
         </article>
 
         <!-- PACKAGE 4 -->
 
-        <article class="package-card">
+        <article class="package-card" data-name="Goa Getaway" data-destination="Goa" data-types="Honeymoon,Beach Holiday">
           <div class="package-image">
             <span class="tag">Honeymoon</span>
             <img
@@ -1180,20 +1221,23 @@
                 <strong>Get Best Price</strong>
               </div>
 
-              <a
-                class="small-btn"
-                href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20am%20interested%20in%20the%20Goa%20tour."
-                target="_blank"
-              >
-                Enquire
-              </a>
+              <div class="package-actions">
+                <button type="button" class="details-btn" onclick="showPackageDetails('Goa Getaway')">View Details</button>
+                <a
+                  class="small-btn"
+                  href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20am%20interested%20in%20the%20Goa%20tour."
+                  target="_blank"
+                >
+                  Enquire
+                </a>
+              </div>
             </div>
           </div>
         </article>
 
         <!-- PACKAGE 5 -->
 
-        <article class="package-card">
+        <article class="package-card" data-name="Himachal Explorer" data-destination="Himachal" data-types="Adventure">
           <div class="package-image">
             <span class="tag">Adventure</span>
             <img
@@ -1221,20 +1265,23 @@
                 <strong>Get Best Price</strong>
               </div>
 
-              <a
-                class="small-btn"
-                href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20am%20interested%20in%20the%20Himachal%20tour."
-                target="_blank"
-              >
-                Enquire
-              </a>
+              <div class="package-actions">
+                <button type="button" class="details-btn" onclick="showPackageDetails('Himachal Explorer')">View Details</button>
+                <a
+                  class="small-btn"
+                  href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20am%20interested%20in%20the%20Himachal%20tour."
+                  target="_blank"
+                >
+                  Enquire
+                </a>
+              </div>
             </div>
           </div>
         </article>
 
         <!-- PACKAGE 6 -->
 
-        <article class="package-card">
+        <article class="package-card" data-name="Royal Rajasthan" data-destination="Rajasthan" data-types="Heritage Tour">
           <div class="package-image">
             <span class="tag">Heritage</span>
             <img
@@ -1262,17 +1309,25 @@
                 <strong>Get Best Price</strong>
               </div>
 
-              <a
-                class="small-btn"
-                href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20am%20interested%20in%20the%20Rajasthan%20tour."
-                target="_blank"
-              >
-                Enquire
-              </a>
+              <div class="package-actions">
+                <button type="button" class="details-btn" onclick="showPackageDetails('Royal Rajasthan')">View Details</button>
+                <a
+                  class="small-btn"
+                  href="https://wa.me/919014954747?text=Hello%20T2%20Travels%2C%20I%20am%20interested%20in%20the%20Rajasthan%20tour."
+                  target="_blank"
+                >
+                  Enquire
+                </a>
+              </div>
             </div>
           </div>
         </article>
 
+      </div>
+
+      <div class="no-results" id="noResults">
+        <h3>No package found</h3>
+        <p>Try another destination or travel type, or clear the filters to see all packages.</p>
       </div>
     </div>
   </section>
@@ -1553,7 +1608,7 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- PACKAGE DETAILS MODAL -->\n  <div class="modal" id="packageModal" onclick="closePackageDetails(event)">\n    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle" onclick="event.stopPropagation()">\n      <button type="button" class="modal-close" onclick="closePackageDetails()" aria-label="Close">×</button>\n      <h2 id="modalTitle">Package Details</h2>\n      <div class="modal-meta" id="modalMeta"></div>\n      <h3>Package Overview</h3>\n      <p id="modalDescription"></p>\n      <h3>Pricing</h3>\n      <p>Contact T2 Travels for the current package price based on your travel dates, hotel preference, transport and number of travellers.</p>\n      <div class="modal-actions">\n        <a id="modalWhatsApp" class="btn btn-whatsapp" href="#" target="_blank">💬 Enquire on WhatsApp</a>\n        <button type="button" class="btn btn-light" onclick="closePackageDetails()">Close</button>\n      </div>\n    </div>\n  </div>\n\n  <!-- FOOTER -->
 
   <footer>
 
@@ -1645,37 +1700,7 @@
       });
     });
 
-    /* SEARCH */
-
-    function searchPackages() {
-
-      const destination =
-        document.getElementById("searchDestination").value.trim();
-
-      const travelType =
-        document.getElementById("travelType").value;
-
-      let message =
-        "Hello T2 Travels, I am looking for a tour package";
-
-      if (destination) {
-        message += " to " + destination;
-      }
-
-      if (travelType) {
-        message += " (" + travelType + ")";
-      }
-
-      message += ".";
-
-      const url =
-        "https://wa.me/919014954747?text=" +
-        encodeURIComponent(message);
-
-      window.open(url, "_blank");
-    }
-
-    /* CONTACT FORM -> WHATSAPP */
+    /* SEARCH / PACKAGE FILTER */\n    function searchPackages() {\n      const destination = document.getElementById("searchDestination").value.trim().toLowerCase();\n      const travelType = document.getElementById("travelType").value.trim().toLowerCase();\n      const cards = document.querySelectorAll(".package-card");\n      let visible = 0;\n\n      cards.forEach(card => {\n        const cardDestination = (card.dataset.destination || "").toLowerCase();\n        const cardTypes = (card.dataset.types || "").toLowerCase();\n        const destinationMatch = !destination || cardDestination.includes(destination);\n        const typeMatch = !travelType || cardTypes.includes(travelType);\n        if (destinationMatch && typeMatch) { card.classList.remove("hidden"); visible++; }\n        else { card.classList.add("hidden"); }\n      });\n\n      document.getElementById("resultsText").textContent =\n        visible === 0 ? "No matching packages found" : `Showing ${visible} package${visible === 1 ? "" : "s"}`;\n      document.getElementById("noResults").classList.toggle("show", visible === 0);\n      document.getElementById("packages").scrollIntoView({ behavior:"smooth", block:"start" });\n    }\n\n    function clearPackageFilters() {\n      document.getElementById("searchDestination").value = "";\n      document.getElementById("travelType").value = "";\n      document.querySelectorAll(".package-card").forEach(card => card.classList.remove("hidden"));\n      document.getElementById("resultsText").textContent = "Showing all 6 packages";\n      document.getElementById("noResults").classList.remove("show");\n    }\n\n    function filterByDestination(destination) {\n      document.getElementById("searchDestination").value = destination;\n      document.getElementById("travelType").value = "";\n      searchPackages();\n    }\n\n    /* PACKAGE DETAILS */\n    const packageDetails = {\n      "Kashmir Paradise Tour": { duration:"5 Nights / 6 Days", destination:"Kashmir", description:"Srinagar, Gulmarg, Pahalgam and Sonamarg. Perfect for families and couples." },\n      "Char Dham Yatra": { duration:"Custom Duration", destination:"Uttarakhand", description:"Visit Yamunotri, Gangotri, Kedarnath and Badrinath with a comfortable pilgrimage itinerary." },\n      "Kerala Holiday": { duration:"5 Nights / 6 Days", destination:"Kerala", description:"Explore Munnar, Thekkady, Alleppey and Kerala's beautiful backwaters." },\n      "Goa Getaway": { duration:"3 Nights / 4 Days", destination:"Goa", description:"Beaches, sightseeing, relaxing stays and memorable experiences in Goa." },\n      "Himachal Explorer": { duration:"6 Nights / 7 Days", destination:"Himachal", description:"Discover Shimla, Manali, mountains, valleys and beautiful Himalayan landscapes." },\n      "Royal Rajasthan": { duration:"6 Nights / 7 Days", destination:"Rajasthan", description:"Jaipur, Jodhpur, Udaipur and the magnificent heritage of Rajasthan." }\n    };\n\n    function showPackageDetails(packageName) {\n      const details = packageDetails[packageName];\n      if (!details) return;\n      document.getElementById("modalTitle").textContent = packageName;\n      document.getElementById("modalMeta").innerHTML = `<span>📅 ${details.duration}</span><span>📍 ${details.destination}</span>`;\n      document.getElementById("modalDescription").textContent = details.description;\n      const message = `Hello T2 Travels, I am interested in the ${packageName}. Please share the current itinerary and best price.`;\n      document.getElementById("modalWhatsApp").href = "https://wa.me/919014954747?text=" + encodeURIComponent(message);\n      document.getElementById("packageModal").classList.add("show");\n      document.body.classList.add("modal-open");\n    }\n\n    function closePackageDetails(event) {\n      if (event && event.target !== document.getElementById("packageModal")) return;\n      document.getElementById("packageModal").classList.remove("show");\n      document.body.classList.remove("modal-open");\n    }\n\n    document.addEventListener("keydown", event => {\n      if (event.key === "Escape") closePackageDetails();\n    });\n\n    /* CONTACT FORM -> WHATSAPP */
 
     function sendWhatsApp(event) {
 
